@@ -10,7 +10,7 @@ This matrix links product requirements to verification evidence. Status reflects
 | FR-04 Data validation | Invalid schema, unit, timestamp and value tests | Python telemetry tests | Partial |
 | FR-05 Offline resilience | Gateway outage/restart/replay integration tests | Not implemented | Not started |
 | FR-06 Contextual baselines | Dataset evaluation across operating modes | Not implemented | Not started |
-| FR-07 Anomaly evidence | Finding contract and rule-version tests | Not implemented | Not started |
+| FR-07 Anomaly evidence | Finding contract and rule-version tests | Sustained excess-flow rule and unit tests | Partial |
 | FR-08 Observation/hypothesis/cause distinction | Domain model and workflow tests | Specified in requirements | Not started |
 | FR-09 Impact estimation | Unit tests, independent calculation review | Excess-volume primitive only | Partial |
 | FR-10 Investigation workflow | API and UI integration tests | Not implemented | Not started |
@@ -34,6 +34,10 @@ The current Python test suite covers:
 - Exclusion of invalid or non-comparable intervals.
 - Exclusion of large sampling gaps.
 - Rejection of non-monotonic and timezone-naive time series.
+- Deterministic synthetic event generation and canonical-contract validation.
+- Synthetic dropout and duplicate-event simulation.
+- Sustained excess-flow findings with duration, threshold, evidence window and integrated volume.
+- Suppression of short spikes and breaks across invalid intervals.
 
 ## Required next tests
 
