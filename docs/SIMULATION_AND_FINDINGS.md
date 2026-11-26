@@ -21,3 +21,12 @@ Each finding reports its time window, duration, mean and peak excess flow, integ
 ## Limits
 
 The baseline is supplied; this rule does not learn or validate it. A finding does not identify a leak, failed machine, open valve, or root cause. Thresholds require calibration against the actual measurement system and operating modes. Synthetic tests do not establish sensor accuracy, energy savings, site suitability, or commercial value. Duplicate suppression, durable ingestion, clock-quality assessment, and baseline learning remain separate work.
+
+## Run the end-to-end demonstration
+
+Install the project in editable mode, then run:
+
+    python -m pip install -e .
+    python -m aeris_core.demo --scenario sustained_excess
+
+Choose normal, idle_loss, or sustained_excess. The command parses generated events through the canonical telemetry contract, converts them into flow points, applies the finding rule, and prints a JSON evidence summary. The output is synthetic and is not a plant diagnosis.
