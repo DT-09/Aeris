@@ -52,19 +52,17 @@ The first release is a read-only monitoring and decision-support system for a co
 
 ```text
 aeris/
-├── docs/
-│   ├── PRODUCT_REQUIREMENTS.md
-│   ├── ARCHITECTURE.md
-│   ├── ROADMAP.md
-│   └── SAFETY_SECURITY.md
-├── firmware/              # embedded device software
-├── edge/                  # local gateway and buffering
-├── services/              # ingestion and application APIs
-├── analytics/             # baselines, diagnostics and estimates
-├── web/                   # operator application
-├── shared/                # schemas and protocol definitions
-├── tests/                 # integration, simulation and acceptance tests
-└── infrastructure/        # deployment and operational configuration
+├── .github/workflows/     # continuous integration
+├── docs/                  # product, architecture, safety and execution specs
+├── src/aeris_core/        # deterministic telemetry and analytics core
+├── tests/                 # automated unit and acceptance tests
+├── pyproject.toml
+├── firmware/              # embedded device software (future)
+├── edge/                  # local gateway and buffering (future)
+├── services/              # ingestion and application APIs (future)
+├── web/                   # operator application (future)
+├── shared/                # versioned schemas and protocol definitions (future)
+└── infrastructure/        # deployment and operational configuration (future)
 ```
 
 Directories will be introduced with their first working implementation rather than populated with empty placeholders.
