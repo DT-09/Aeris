@@ -11,7 +11,7 @@ calibrate sensors or prove that a measurement is accurate.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 import math
 from typing import Any, Mapping
 
@@ -30,7 +30,7 @@ def _parse_aware_datetime(value: Any, field: str) -> datetime:
         raise TelemetryValidationError(f"{field} is not a valid ISO-8601 timestamp") from exc
     if parsed.tzinfo is None or parsed.utcoffset() is None:
         raise TelemetryValidationError(f"{field} must include a timezone")
-    return parsed
+    return parsed.astimezone(timezone.utc)
 
 
 def _required_text(payload: Mapping[str, Any], field: str) -> str:
