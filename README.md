@@ -22,7 +22,7 @@ AERIS is not a generic sensor dashboard. Its core product is the evidence chain 
 
 ## Current status
 
-**Repository bootstrap / specification stage.** This repository began empty. No hardware, firmware, backend, dashboard, field integration, validated diagnostic model or customer deployment is claimed to exist.
+**Early software-core stage.** The repository began empty. Product requirements, architecture, safety constraints and execution gates are documented. A Python core now validates canonical telemetry and computes a transparent excess-flow estimate. GitHub Actions runs the unit-test suite. No hardware, firmware, edge gateway, backend API, dashboard, field integration, validated diagnostic model or customer deployment is claimed to exist.
 
 ## Initial product boundary
 
@@ -45,6 +45,8 @@ The first release is a read-only monitoring and decision-support system for a co
 - [System architecture](docs/ARCHITECTURE.md)
 - [Execution roadmap](docs/ROADMAP.md)
 - [Safety, security and data integrity](docs/SAFETY_SECURITY.md)
+- [Architecture decisions](docs/DECISIONS.md)
+- [Validation matrix](docs/VALIDATION_MATRIX.md)
 
 ## Proposed repository layout
 
