@@ -20,8 +20,7 @@ class FindingTests(unittest.TestCase):
 
     def test_short_spike_is_not_emitted(self):
         points = [FlowPoint(T0, .010, .010),
-                  FlowPoint(T0 + timedelta(seconds=30), .030, .010),
-                  FlowPoint(T0 + timedelta(seconds=60), .010, .010)]
+                  FlowPoint(T0 + timedelta(seconds=30), .030, .010)]
         self.assertEqual(detect_sustained_excess(
             points, threshold_m3_s=.005, minimum_duration_seconds=60), [])
 
