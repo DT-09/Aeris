@@ -34,6 +34,20 @@ class TelemetryContractTests(unittest.TestCase):
         with self.assertRaises(TelemetryValidationError):
             TelemetryEvent.from_mapping(payload)
 
+    def test_normalizes_offset_timestamp_to_utc(self):
+        payload = valid_payload()
+        payload["event_time_utc"] = "2026-11-26T15:30:00+05:30"
+        event = TelemetryEvent.from_mapping(payload)
+        self.assertEqual(event.event_time_utc.isoformat(), "2026-11-26T10:00:00+00:00")
+
+    def test_rejects_non_finite_value(self):
+        for invalid in (float("nan"), float("inf"), float("-inf")):
+            payload = valid_payload()
+            payload["value"] = invalid
+            with self.subTest(value=invalid):
+                with self.assertRaises(TelemetryValidationError):
+                    TelemetryEvent.from_mapping(payload)
+
     def test_rejects_timezone_naive_timestamp(self):
         payload = valid_payload()
         payload["event_time_utc"] = "2026-11-26T10:00:00"
